@@ -106,7 +106,7 @@ function backupDBs($hostname, $username, $password, $prefix, $post_backup_query 
   
   // Connecting, selecting database
   print 'connect db';
-  $link = mysqli_connect($hostname, $username, $password, 'node') or die('Could not connect: ' . mysql_error());
+  $link = mysqli_connect($hostname, $username, $password) or die('Could not connect: ' . mysql_error());
   
   $databases = array();
 
