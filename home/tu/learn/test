@@ -1,8 +1,0 @@
-#!/bin/bash
-
-declare -A person
-
-person=(["name"]="ten" ["age"]=21)
-
-for sound in "${!person[@]}"; do echo "$sound - ${person["$sound"]}"; done
-
