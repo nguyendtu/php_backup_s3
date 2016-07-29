@@ -99,31 +99,36 @@ function backupFiles($targets, $prefix = '') {
 }
 
 // Backup all Mysql DBs using mysqldump
-function backupDBs($hostname, $username, $password, $prefix, $post_backup_query = '') {
+function backupDBs($hostname, $username, $password, $prefix, $post_backup_query = '', $dbs = [], $store = 'backup') {
   global $DATE, $s3, $mysql_backup_options;
   
 	if (schedule == "hourly") deleteHourlyBackups($prefix);
   
   // Connecting, selecting database
-  $link = mysql_connect($hostname, $username, $password) or die('Could not connect: ' . mysql_error());
-  
-  $query = 'SHOW DATABASES';
-  $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+  print 'connect db';
+  $link = mysqli_connect($hostname, $username, $password, 'node') or die('Could not connect: ' . mysql_error());
   
   $databases = array();
-  
-  while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+
+  if (count($dbs)) {
+    $databases = $dbs;
+  } else {
+    $query = 'SHOW DATABASES';
+    $result = mysqli_query($query) or die('Query failed: ' . mysql_error());
+    
+    while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
       foreach ($row as $database) {
-      $databases[] = $database;
+        $databases[] = $database;
       }
+    }
   }
   
   // Free resultset
-  mysql_free_result($result);
+  mysqli_free_result($result);
 
   //Run backups on each DB found
   foreach ($databases as $database) {
-    backupDB($hostname, $username, $password, $database, $prefix, $post_backup_query = '');
+    backupDB($hostname, $username, $password, $database, $prefix, $store, $post_backup_query = '');
   }
   
   //Run post backup queries if needed
@@ -132,19 +137,30 @@ function backupDBs($hostname, $username, $password, $prefix, $post_backup_query 
   }
   
   // Closing connection
-  mysql_close($link);
+  mysqli_close($link);
   
 }
 
-function backupDB($hostname, $username, $password, $database, $prefix, $post_backup_query = '') {
+function backupDB($hostname, $username, $password, $database, $prefix, $store, $post_backup_query = '') {
 	global $s3, $mysql_backup_options;
-	
-	`/usr/bin/mysqldump $mysql_backup_options --no-data --host=$hostname --user=$username --password='$password' $database | bzip2  > $database-structure-backup.sql.bz2`;
-  `/usr/bin/mysqldump $mysql_backup_options --host=$hostname --user=$username --password='$password' $database | bzip2 > $database-data-backup.sql.bz2`;
-  $s3->putObjectFile("$database-structure-backup.sql.bz2",awsBucket,s3Path($prefix,"/".$database."-structure-backup.sql.bz2"));
-  $s3->putObjectFile("$database-data-backup.sql.bz2",awsBucket,s3Path($prefix,"/".$database."-data-backup.sql.bz2"));
+	$today = getdate();
+	`/usr/bin/mysqldump $mysql_backup_options --no-data --host=$hostname --user=$username --password='$password' $database | bzip2  > wlp_$today[mday]_$today[mon]_$today[year]_$database.sql.bz2`;
+  `/usr/bin/mysqldump $mysql_backup_options --host=$hostname --user=$username --password='$password' $database | bzip2 > wlp_$today[mday]_$today[mon]_$today[year]_$database.sql.bz2`;
+
+  switch ($store) {
+    case 's3':
+      $s3->putObjectFile("wlp_$today[mday]_$today[mon]_$today[year]_$database.sql.bz2",awsBucket,s3Path($prefix,"/".$database."-structure-backup.sql.bz2"));
+      $s3->putObjectFile("wlp_$today[mday]_$today[mon]_$today[year]_$database.sql.bz2",awsBucket,s3Path($prefix,"/".$database."-data-backup.sql.bz2"));
+      break;
+    default:
+      if (!file_exists($store)) {
+        `mkdir $store`;
+      }
+      `mv wlp_$today[mday]_$today[mon]_$today[year]_$database.sql.bz2 $store/`;
+      break;
+  }
   
-  `rm -rf $database-structure-backup.sql.bz2 $database-data-backup.sql.bz2`;
+  `rm -rf wlp_$today[mday]_$today[mon]_$today[year]_$database.sql.bz2 $database-data-backup.sql.bz2`;
 }
 
 function xtrabackupDBs($database, $username, $password, $xtrabackup, $datadir, $innodb_log_file_size, $prefix, $post_backup_query = '') {

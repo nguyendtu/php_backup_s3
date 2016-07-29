@@ -5,6 +5,6 @@
 // This style is completely optional, and is only shown as an example.
 // To enable this example you will need to rename it to etc.php (remove ".dist" from the filename)
 
-backupFiles(array('/etc'),'my_server');
-
+// backupFiles(array('/etc'),'my_server');
+// backupFiles(array('/home/tu/learn'),'backup');
 ?>

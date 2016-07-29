@@ -1,0 +1,60 @@
+2016-07-19T10:50:05.225705782 0.413894s notice: Recursively removing directory /home/tu/learn/rethinkdb_data/tmp
+2016-07-19T10:50:05.260553299 0.448740s notice: Initializing directory /home/tu/learn/rethinkdb_data
+2016-07-19T10:50:05.260744448 0.448930s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/tu/learn/rethinkdb_data' did not already exist or is empty.)
+2016-07-19T10:50:05.260792908 0.448979s notice: Running rethinkdb 2.3.4~0xenial (GCC 5.3.1)...
+2016-07-19T10:50:05.267719503 0.455910s notice: Running on Linux 4.4.0-31-generic x86_64
+2016-07-19T10:50:05.267835626 0.456021s notice: Loading data from directory /home/tu/learn/rethinkdb_data
+2016-07-19T10:50:05.365542801 0.553729s info: Automatically using cache size of 178 MB
+2016-07-19T10:50:05.367297113 0.555483s notice: Listening for intracluster connections on port 29015
+2016-07-19T10:50:05.375608134 0.563794s notice: Listening for client driver connections on port 28015
+2016-07-19T10:50:05.375878124 0.564064s notice: Listening for administrative HTTP connections on port 8080
+2016-07-19T10:50:05.375883230 0.564069s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T10:50:05.375889284 0.564075s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T10:50:05.375892909 0.564078s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T10:50:05.375898336 0.564084s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-07-19T10:50:05.375903917 0.564089s notice: Server ready, "tu_Inspiron_N5110_q52" 117b76c9-70a0-4969-9574-501f8613972e
+2016-07-19T10:50:45.887814550 41.076001s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-07-19T10:50:45.888051908 41.076238s notice: Shutting down client connections...
+2016-07-19T10:50:45.888315298 41.076501s notice: All client connections closed.
+2016-07-19T10:50:45.888320029 41.076506s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-07-19T10:50:45.890455720 41.078642s notice: Storage engine shut down.
+2016-07-19T10:52:20.767113054 0.375818s notice: Running rethinkdb 2.3.4~0xenial (GCC 5.3.1)...
+2016-07-19T10:52:20.771657205 0.380366s notice: Running on Linux 4.4.0-31-generic x86_64
+2016-07-19T10:52:20.771765440 0.380470s notice: Loading data from directory /home/tu/learn/rethinkdb_data
+2016-07-19T10:52:20.827255743 0.435961s info: Automatically using cache size of 194 MB
+2016-07-19T10:52:20.828203002 0.436907s notice: Listening for intracluster connections on port 29015
+2016-07-19T10:52:20.831503122 0.440208s notice: Listening for client driver connections on port 28015
+2016-07-19T10:52:20.831738055 0.440442s notice: Listening for administrative HTTP connections on port 8080
+2016-07-19T10:52:20.831742291 0.440446s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T10:52:20.831747899 0.440452s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T10:52:20.831751349 0.440455s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T10:52:20.831756780 0.440461s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-07-19T10:52:20.831762051 0.440466s notice: Server ready, "tu_Inspiron_N5110_q52" 117b76c9-70a0-4969-9574-501f8613972e
+2016-07-19T11:24:10.205378280 1909.814083s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-07-19T11:24:10.206885865 1909.815590s notice: Shutting down client connections...
+2016-07-19T11:24:10.207144174 1909.815848s notice: All client connections closed.
+2016-07-19T11:24:10.207148263 1909.815852s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-07-19T11:24:10.219127569 1909.827832s notice: Storage engine shut down.
+2016-07-19T17:24:32.732864334 0.509968s notice: Running rethinkdb 2.3.4~0xenial (GCC 5.3.1)...
+2016-07-19T17:24:32.738468170 0.515574s notice: Running on Linux 4.4.0-31-generic x86_64
+2016-07-19T17:24:32.738532516 0.515636s notice: Loading data from directory /home/tu/learn/rethinkdb_data
+2016-07-19T17:24:32.779882281 0.556986s info: Automatically using cache size of 288 MB
+2016-07-19T17:24:32.780883709 0.557987s notice: Listening for intracluster connections on port 29015
+2016-07-19T17:24:32.785845235 0.562949s notice: Listening for client driver connections on port 28015
+2016-07-19T17:24:32.786030155 0.563133s notice: Listening for administrative HTTP connections on port 8080
+2016-07-19T17:24:32.786032615 0.563136s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T17:24:32.786036772 0.563140s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T17:24:32.786039776 0.563143s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2016-07-19T17:24:32.786044389 0.563147s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-07-19T17:24:32.786050828 0.563154s notice: Server ready, "tu_Inspiron_N5110_q52" 117b76c9-70a0-4969-9574-501f8613972e
+2016-07-19T17:26:02.663681962 90.440785s info: Table c6993d82-aeec-4bbb-a2b7-16edecc8f888: Starting a new Raft election for term 1.
+2016-07-19T17:26:02.664137661 90.441241s info: Table c6993d82-aeec-4bbb-a2b7-16edecc8f888: Added replica on this server.
+2016-07-19T17:26:02.671404187 90.448508s info: Table c6993d82-aeec-4bbb-a2b7-16edecc8f888: This server is Raft leader for term 1. Latest log index is 0.
+2016-07-19T17:39:10.517830116 878.294934s info: Table 1a398a4f-5e4b-4e2d-99b9-b2e3dfbd7e42: Added replica on this server.
+2016-07-19T17:39:10.517877126 878.294981s info: Table 1a398a4f-5e4b-4e2d-99b9-b2e3dfbd7e42: Starting a new Raft election for term 1.
+2016-07-19T17:39:10.521307888 878.298411s info: Table 1a398a4f-5e4b-4e2d-99b9-b2e3dfbd7e42: This server is Raft leader for term 1. Latest log index is 0.
+2016-07-19T18:00:13.341462920 2141.118568s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-07-19T18:00:13.341684430 2141.118788s notice: Shutting down client connections...
+2016-07-19T18:00:13.341872677 2141.118976s notice: All client connections closed.
+2016-07-19T18:00:13.341877996 2141.118981s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-07-19T18:00:13.351039455 2141.128144s notice: Storage engine shut down.

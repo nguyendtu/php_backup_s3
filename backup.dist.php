@@ -6,9 +6,9 @@ The following must be configured before running the script.
 
 */
 
-define('awsAccessKey', ''); // required
-define('awsSecretKey', ''); // required
-define('awsBucket', ''); // required
+define('awsAccessKey', 'AKIAIR2N73GZCJNSLC3A'); // required
+define('awsSecretKey', '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'); // required
+define('awsBucket', 'seorank-test'); // required
 
 // Will this script run "weekly", "daily", or "hourly"?
 define('schedule','daily'); // required
@@ -32,7 +32,7 @@ backupDBs - hostname, username, password, prefix, [post backup query]
   post backup query = Optional: Any SQL statement you want to execute after the backups are completed. For example: PURGE BINARY LOGS BEFORE NOW() - INTERVAL 14 DAY;
 
 */
-backupDBs('localhost','username','password','my-database-backup','');
+backupDBs('localhost','root','root','p', '', ['node'], '/opt/wpl_backup');
 
 /*
 
@@ -42,6 +42,6 @@ backupFiles - array of paths, [prefix]
   prefix = Optional: backup filenames will contain this prefix, this prevents overwriting other backups when you have more than one server backing up at once.
 
 */
-backupFiles(array('/home/myuser', '/etc'),'me');
-backupFiles(array('/var/www'),'web files');
+// backupFiles(array('/home/myuser', '/etc'),'me');
+// backupFiles(array('/home/tu/learn'),'backup');
 ?>
